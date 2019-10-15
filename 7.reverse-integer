@@ -1,0 +1,13 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        ans = 0
+        y = abs(x)
+        of = (1 << 31) - 1 if x > 0 else 1 << 31
+        while y != 0:
+            ans = y%10 +ans*10
+            if ans > of: return 0
+            y = y//10
+        if x > 0:
+            return ans
+        else:
+            return -1*ans
