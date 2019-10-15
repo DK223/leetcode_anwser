@@ -1,0 +1,9 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        length = len(nums)
+        delen = 0
+        for i in range(len(nums)-1):
+            if nums[length-i-2] == nums[length-i-1]:
+                del(nums[length-i-1])
+                delen+=1
+        return length - delen
