@@ -1,4 +1,4 @@
-#动态规划法求解最大子序和
+#动态规划法求解最大子序和 时间复杂度为O(n)
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         snum, ans = 0, nums[0]
