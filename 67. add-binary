@@ -1,0 +1,16 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        add = 0
+        res = ''
+        d = len(b) - len(a)
+        a = '0' * d + a
+        b = '0' * -d + b
+        for i, j in zip(a[::-1], b[::-1]):
+            s = int(i) + int(j) + add
+            res = str(s % 2) + res
+            add = s // 2
+        # for i in range(len(a)):
+        #     temp = int(a[len(a) - i - 1]) + int(b[len(b) - i - 1]) + add
+        #     add = temp // 2
+        #     res = str(temp % 2) + res
+        return '1' + res if add else res
