@@ -1,0 +1,30 @@
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+# 层序遍历，定义一个队列，每次将新访问到的节点加入到队列的最后。弹出第一个节点，返回该节点的值
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        List = []
+        res = []
+        if root!=None:
+            List.append(root)
+        while(len(List)!=0):
+            n = len(List)
+            temp = []
+            for i in range(n):
+                Node = List.pop(0)
+                temp.append(Node.val)
+                if Node.left != None:
+                    List.append(Node.left)
+                if Node.right != None:
+                    List.append(Node.right)
+            res.append(temp)
+        return res
