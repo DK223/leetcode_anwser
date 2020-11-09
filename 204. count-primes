@@ -1,0 +1,18 @@
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        count = 0
+        signs = [False]*n
+        for i in range(2,n):
+            if not signs[i]:
+                count+=1
+                for j in range(2*i,n,i):
+                    signs[j] = True
+        return count
+        
+"""
+  某个数对2的n次方取余，相当于二进制中右移n位后溢出的n位数。与2^n-1做与运算相当于取后n位。
+  X % 2^n = X & (2^n - 1)
+"""
+"""
+  厄拉多塞筛法
+"""
